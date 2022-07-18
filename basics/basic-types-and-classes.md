@@ -58,11 +58,12 @@ class Storage
 Если мы хотим принимать тот или иной конкретный тип в виде аргумента (например, аргумент
 должен быть **строкой или булевым значением**). Можно передавать сколько угодно типов, а также тип класса.
 ```php
-class Storage
+class Storage {
     public function add(string $key, string|bool|ShopItem $value)
     {
         // Действия c $key и $value
     }
+} 
 //При попытке передать значение другого типа, получим ошибку TypeError
 ```
 
@@ -70,19 +71,23 @@ class Storage
 Если передаваемый аргумент при каких-либо обстоятельствах может иметь значение `null`, и нас это устраивает,
 мы можем сделать "проверку на `null`".
 ```php
-class Storage
+class Storage {
     public function add(string $key, ?string $value)
     {
         // Действия c $key и $value
     }
+} 
 //Если $value не null, значение будет иметь тип string и наоборот
 ```
 ### Объявление возвращаемого типа
 Мы также можем явно указать, значение какого типа возвращает наша функция, вот пример:
 ```php
-public function getLength() : int
-{
-    return $this->length;
+class Test {
+    public $length;
+    public function getLength() : int
+    {
+        return $this->length;
+    }
 }
 // Функция всегда должна возвращать int, если будет другой тип, получим TypeError
 ```
@@ -91,9 +96,12 @@ public function getLength() : int
 Начиная с **PHP 8**, имеется один тип, который поддерживается объявлениями возвращаемого типа, но не типов аргументов. Вы можете объявить, что метод никогда не вернет никакого значения, используя псевдотип
 `void`. Так, например, поскольку метод `setDiscount()` предназначен только для установки значения, но не для его возврата, я использую объявление возвращаемого типа `void`:
 ```php
-public function setDiscount(int|float $num): void
-{
-    $this->discount = $num;
+class Test {
+    public $length;
+    public function setDiscount(int|float $num): void
+    {
+        $this->discount = $num;
+    }
 }
 // Функция ничего не возвращает
 ```

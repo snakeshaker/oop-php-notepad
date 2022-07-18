@@ -73,8 +73,7 @@ class ShopProduct { // Родительский класс
     }
     public function getProducer(): string
     {
-        return $this->producerFirstName .
-        . $this->producerMainName;
+        return $this->producerFirstName . $this->producerMainName;
     }
     public function getSummaryLine(): string
     {
