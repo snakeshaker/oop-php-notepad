@@ -10,8 +10,8 @@
 
 ### Расширеннные возможности
 - [Статические методы и свойства](more_features/static.md)
-- [Абстрактные классы и интерфейсы](more_features/classes.md)
-- [Трейты](more_features/classes.md)
+- [Абстрактные классы и интерфейсы](more_features/abstract.md)
+- [Трейты](more_features/traits.md)
 - [Обработка ошибок](more_features/classes.md)
 - [Завершенные классы и методы](more_features/classes.md)
 - [Методы-перехватчики](more_features/classes.md)
