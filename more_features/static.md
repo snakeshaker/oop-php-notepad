@@ -39,3 +39,33 @@ class ConstExample
 }
 print ConstExample::INFO; // 1
 ```
+
+### Позднее статическое связывание: ключевое слово static
+Если мы к примеру хотим создать экземпляр класса внутри метода класса, мы напишем такой код.
+
+```php
+class DomainObject 
+    {
+    public static function create(): DomainObject
+    {
+        return new self();
+    }
+}
+```
+
+Но если попытаться выполнить метод в наследуемом классе, мы получим ошибку. Так как
+`self` ссылается на класс, где метод **был создан, а не вызван**. Чтобы сделать ссылку
+именно **на класс, где метод вызывается**, используем ключевое слово `static`.
+```php
+abstract class DomainObject
+{
+    public static function create(): DomainObject
+    {
+        return new static();
+    }
+}
+
+class User extends DomainObject {}
+
+print_r(User::create()); // Создастся объект типа User, ошибки нет
+```
